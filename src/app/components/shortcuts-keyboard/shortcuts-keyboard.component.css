@@ -1,0 +1,39 @@
+.shortcuts,
+.doubt {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.shortcuts p,
+.doubt p {
+  line-height: 1.6;
+}
+
+.shortcuts kbd,
+.doubt kbd {
+  padding: 2px 5px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.doubt embed {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  width: 450px;
+  height: 750px;
+}

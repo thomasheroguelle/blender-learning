@@ -1,0 +1,137 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button class="btn-menu" mat-icon-button (click)="toggleSidenav()">
+    <mat-icon class="menu">menu</mat-icon>
+  </button>
+  <div class="main-content">
+    <img
+      class="blender"
+      src="/assets/header/blender.png"
+      alt=""
+      *ngIf="!isSidenavOpened"
+    />
+    <h1>Blender Learning</h1>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    (openedChange)="onSidenavToggle($event)"
+  >
+    <mat-nav-list>
+      <!-- Parent Menu -->
+      <mat-list-item (click)="toggleMenu('learning')" class="parent">
+        <span class="menu-text" *ngIf="isExpanded || isShowing">Learning</span>
+        <mat-icon mat-list-icon>home</mat-icon>
+        <mat-icon
+          class="menu-button"
+          [ngClass]="{ rotated: showLearningSubmenu }"
+          *ngIf="isExpanded || isShowing"
+          >expand_more</mat-icon
+        >
+      </mat-list-item>
+
+      <!-- Learning Submenu -->
+      <div
+        class="submenu"
+        [ngClass]="{
+          expanded: showLearningSubmenu,
+          collapsed: !showLearningSubmenu,
+        }"
+      >
+        <!-- Basiques -->
+        <mat-list-item (click)="toggleMenu('basics')" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing"
+            >Basiques</span
+          >
+          <mat-icon mat-list-icon>home</mat-icon>
+          <mat-icon
+            class="menu-button"
+            [ngClass]="{ rotated: showBasicsSubmenu }"
+            *ngIf="isExpanded || isShowing"
+            >expand_more</mat-icon
+          >
+        </mat-list-item>
+
+        <div
+          class="submenu"
+          [ngClass]="{
+            expanded: showBasicsSubmenu,
+            collapsed: !showBasicsSubmenu,
+          }"
+        >
+          <a mat-list-item routerLink="shortcuts-keyboard"
+            >Raccourcis clavier</a
+          >
+          <a mat-list-item routerLink="add-object-toolbar"
+            >Barre d'outils de l'ajout d'objets</a
+          >
+          <a mat-list-item routerLink="shade-smooth">Ombrage lissé</a>
+          <a mat-list-item routerLink="camera">Camera</a>
+          <a mat-list-item routerLink="duplicating-object"
+            >Dupliquer un objet
+          </a>
+        </div>
+
+        <!-- Edit Mode -->
+        <mat-list-item (click)="toggleMenu('edit')" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing"
+            >Edit Mode</span
+          >
+          <mat-icon mat-list-icon>edit</mat-icon>
+          <mat-icon
+            class="menu-button"
+            [ngClass]="{ rotated: showEditSubmenu }"
+            *ngIf="isExpanded || isShowing"
+            >expand_more</mat-icon
+          >
+        </mat-list-item>
+
+        <div
+          class="submenu"
+          [ngClass]="{ expanded: showEditSubmenu, collapsed: !showEditSubmenu }"
+        >
+          <a mat-list-item routerLink="changing-form-object"
+            >Changer la forme de son objet
+          </a>
+          <a mat-list-item routerLink="proportional-editing"
+            >Edition de proportions</a
+          >
+          <a mat-list-item routerLink="x-rays">Rayons X</a>
+        </div>
+
+        <mat-list-item (click)="toggleMenu('modifier')" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing"
+            >Modifiers</span
+          >
+          <mat-icon mat-list-icon>edit</mat-icon>
+          <mat-icon
+            class="menu-button"
+            [ngClass]="{ rotated: showModifierMenu }"
+            *ngIf="isExpanded || isShowing"
+            >expand_more</mat-icon
+          >
+        </mat-list-item>
+
+        <div
+          class="submenu"
+          [ngClass]="{
+            expanded: showModifierMenu,
+            collapsed: !showModifierMenu,
+          }"
+        >
+          <a mat-list-item routerLink="subdivision-surface-modifier"
+            >Subdivision Surface Modifier</a
+          >
+          <a mat-list-item routerLink="solidify-modifier">Solidify Modifier</a>
+        </div>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
+
+<!-- https://stackblitz.com/edit/material-sidenav-example?file=app%2Fsidenav-autosize-example.css -->

@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh;
+}
+
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* DISPLAY FLEX  */
+.df {
+  display: flex;
+}
+
+.jc-ac {
+  display: flex;
+  align-items: center;
+}
+
+.jc-ac-fdc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mat-drawer-inner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ytb {
+  width: 64px;
+}
+
+/* SIDENAV  */
+.mdc-list-item__primary-text {
+  display: flex;
+  align-items: center;
+}
